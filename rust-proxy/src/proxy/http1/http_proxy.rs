@@ -376,6 +376,7 @@ mod tests {
     use crate::vojo::route::{BaseRoute, LoadbalancerStrategy, RandomBaseRoute, RandomRoute};
     use lazy_static::lazy_static;
     use regex::Regex;
+    use std::collections::HashMap;
     use std::env;
     use std::fs::File;
     use std::io::BufReader;
@@ -623,6 +624,7 @@ mod tests {
                     server_type: crate::vojo::app_config::ServiceType::Http,
                     cert_str: None,
                     routes: vec![Route {
+                        rewrite_headers: Some(HashMap::new()),
                         host_name: None,
                         route_id: get_uuid(),
                         matcher: Some(Matcher {
@@ -693,6 +695,7 @@ mod tests {
                     server_type: crate::vojo::app_config::ServiceType::Tcp,
                     cert_str: None,
                     routes: vec![Route {
+                        rewrite_headers: Some(HashMap::new()),
                         route_id: get_uuid(),
                         host_name: None,
                         matcher: Some(Matcher {
@@ -765,6 +768,7 @@ mod tests {
                     server_type: crate::vojo::app_config::ServiceType::Http,
                     cert_str: None,
                     routes: vec![Route {
+                        rewrite_headers: Some(HashMap::new()),
                         host_name: None,
                         route_id: get_uuid(),
                         matcher: Some(Matcher {
